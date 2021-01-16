@@ -12,7 +12,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="json-20200518" level="project" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="json-20200518 copy" level="project" />
   </component>
 </module>

@@ -49,6 +49,7 @@ public class Controller {
             e.printStackTrace();
         }
 
+        assert response != null;
         return new JSONObject(response.body());
     }
 
@@ -62,11 +63,11 @@ public class Controller {
     }
 
     public String viewStringList(List<String> stringList) {
-        String printout = "";
+        String printout = "You have " + stringList.size() + " results:\n";
         for (String s : stringList) {
             printout = printout.concat("\n" + s);
         }
-        return printout;
+        return printout + "\n";
     }
 
 }

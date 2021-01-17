@@ -1,6 +1,9 @@
 package ui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,21 +20,25 @@ public class Controller {
     public static String BASE_URL = "https://wordsapiv1.p.rapidapi.com/words";
 
     public TextField textField;
+    public ListView<String> listField = new ListView<>();
+    private ObservableList<String> observableList;
 
     public void handleDefinitionButtonPressed(ActionEvent actionEvent) {
         String word = textField.getText();
         JSONObject response = getRequest(word, "definition");
         List<String> definitions = parseJsonArray(response.getJSONArray("definition"));
-        System.out.println(viewStringList(definitions));
-
+        observableList = FXCollections.observableArrayList();
+        observableList.addAll(definitions);
+        listField.setItems(observableList);
     }
 
     public void handleSynonymButtonPressed(ActionEvent actionEvent) {
         String word = textField.getText();
         JSONObject results = getRequest(word, "synonyms");
         List<String> synonyms = parseJsonArray(results.getJSONArray("synonyms"));
-        System.out.println(viewStringList(synonyms));
-
+        observableList = FXCollections.observableArrayList();
+        observableList.addAll(synonyms);
+        listField.setItems(observableList);
     }
 
     public JSONObject getRequest(String word, String requestType) {

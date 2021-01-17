@@ -13,25 +13,25 @@
           GridPane.columnIndex="0" GridPane.rowIndex="0"
           GridPane.columnSpan="2"/>
 
-    <TextField text="Please enter a word:" alignment="TOP_LEFT" fx:id="textField"
+    <TextField text="Please enter a word here" alignment="TOP_LEFT" fx:id="textField"
                GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-    <HBox spacing="10" alignment="BOTTOM_LEFT"
-          GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <Button text="Get Definition"
-                onAction="#handleDefinitionButtonPressed"/>
-    </HBox>
-
-    <HBox spacing="10" alignment="BOTTOM_CENTER"
+    <HBox spacing="10" alignment="CENTER"
           GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Button text="Get Synonyms"
                 onAction="#handleSynonymButtonPressed"/>
     </HBox>
 
-    <HBox spacing="10" alignment="BOTTOM_RIGHT"
+    <HBox spacing="10" alignment="BASELINE_RIGHT"
           GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Button text="Get Antonyms"
                 onAction="#handleAntonymButtonPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="BASELINE_LEFT"
+          GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button text="Get Definition"
+                onAction="#handleDefinitionButtonPressed"/>
     </HBox>
 
     <VBox spacing="10" alignment="BOTTOM_RIGHT"

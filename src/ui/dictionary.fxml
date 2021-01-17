@@ -2,42 +2,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+
+
 <GridPane fx:controller="ui.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10"
           stylesheets="/ui/ui.css">
     <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
 
-    <Text text="Welcome" textAlignment="LEFT"
-          GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Text id = "title" text="Welcome"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
 
-    <Label text="Please enter a word:" alignment="TOP_RIGHT"
-           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-
-    <TextField alignment="TOP_LEFT" fx:id="textField"
+    <TextField text="Please enter a word:" alignment="TOP_LEFT" fx:id="textField"
                GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-    <HBox spacing="10" alignment="BOTTOM_RIGHT"
+    <HBox spacing="10" alignment="BOTTOM_LEFT"
           GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Button text="Get Definition"
                 onAction="#handleDefinitionButtonPressed"/>
     </HBox>
 
-    <HBox spacing="10" alignment="BOTTOM_RIGHT"
-          GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <HBox spacing="10" alignment="BOTTOM_CENTER"
+          GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Button text="Get Synonyms"
                 onAction="#handleSynonymButtonPressed"/>
     </HBox>
 
     <HBox spacing="10" alignment="BOTTOM_RIGHT"
-          GridPane.columnIndex="1" GridPane.rowIndex="4">
+          GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Button text="Get Antonyms"
                 onAction="#handleAntonymButtonPressed"/>
     </HBox>
 
     <VBox spacing="10" alignment="BOTTOM_RIGHT"
-          GridPane.columnIndex="3" GridPane.rowIndex="5">
+          GridPane.columnIndex="1" GridPane.rowIndex="5">
         <ListView fx:id="listField"/>
     </VBox>
-
 
 </GridPane>

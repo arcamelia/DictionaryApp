@@ -21,23 +21,32 @@ public class Controller {
 
     public TextField textField;
     public ListView<String> listField = new ListView<>();
-    private ObservableList<String> observableList;
 
     public void handleDefinitionButtonPressed(ActionEvent actionEvent) {
-        String word = textField.getText();
-        JSONObject response = getRequest(word, "definition");
-        List<String> definitions = parseJsonArray(response.getJSONArray("definition"));
-        observableList = FXCollections.observableArrayList();
-        observableList.addAll(definitions);
-        listField.setItems(observableList);
+        List<String> definitions = getAPIResponse("definition");
+        populateListView(definitions);
     }
 
     public void handleSynonymButtonPressed(ActionEvent actionEvent) {
+        List<String> synonyms = getAPIResponse("synonyms");
+        populateListView(synonyms);
+    }
+
+    public void handleAntonymButtonPressed(ActionEvent actionEvent) {
+        List<String> antonyms = getAPIResponse("antonyms");
+        populateListView(antonyms);
+    }
+
+    public List<String> getAPIResponse(String endpoint) {
         String word = textField.getText();
-        JSONObject results = getRequest(word, "synonyms");
-        List<String> synonyms = parseJsonArray(results.getJSONArray("synonyms"));
-        observableList = FXCollections.observableArrayList();
-        observableList.addAll(synonyms);
+        JSONObject response = getRequest(word, endpoint);
+        return parseJsonArray(response.getJSONArray(endpoint));
+    }
+
+    public void populateListView(List<String> stringList) {
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(stringList);
+        listField.refresh();
         listField.setItems(observableList);
     }
 
@@ -76,5 +85,4 @@ public class Controller {
         }
         return printout + "\n";
     }
-
 }

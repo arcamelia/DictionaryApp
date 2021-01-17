@@ -28,8 +28,14 @@
                 onAction="#handleSynonymButtonPressed"/>
     </HBox>
 
+    <HBox spacing="10" alignment="BOTTOM_RIGHT"
+          GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Get Antonyms"
+                onAction="#handleAntonymButtonPressed"/>
+    </HBox>
+
     <VBox spacing="10" alignment="BOTTOM_RIGHT"
-          GridPane.columnIndex="3" GridPane.rowIndex="4">
+          GridPane.columnIndex="3" GridPane.rowIndex="5">
         <ListView fx:id="listField"/>
     </VBox>
 
